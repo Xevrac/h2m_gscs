@@ -21,7 +21,7 @@ Steps are super simple so I will keep it high level.
     * Place in your server `.cfg`
 
 * g_Entity Patch
-  * Replaces `chopper_gunner_mp` with `ac130_m` killstreak
+  * Replaces `chopper_gunner_mp` with `ac130_mp` killstreak
   * This reduces likelihood of g_Entity crashes however other entity data cause this issue so its not a permanent fix
  
 * More scripts coming soon!
