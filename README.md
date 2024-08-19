@@ -21,3 +21,7 @@ Steps are super simple so I will keep it high level.
     * Place in your server `.cfg`
  
 * More scripts coming soon!
+
+# References
+
+[H2M GSC Dump](https://github.com/Jeffx539/h2m-gsc-dump/tree/main)
