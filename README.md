@@ -3,10 +3,21 @@
 # h2m_gscs
 This is a collection of our GSCs. Some are authored by Xevrac and/or in collaboration with other developers. Credits are included in each script respectively.
 
-# What's in the repo
+# Install steps
+Steps are super simple so I will keep it high level.
 
+* Drop the scripts into `.\h2m-mod\user_scripts\mp\`.
+* Some scripts require a DVAR to enable / disable, use where required.
+
+# What's in the repo
 > Note this is currently broken and will be fixed in v3
 * Nuke to Moab Patch
   * This patch tweaks the game's Nuke to not end_game rather kill all players and resume as normal
+  * Enable/Disable DVAR `set nukeEndsGame "0"` (off) or `set nukeEndsGame "1"` (on)
+
+* Multiplayer Bots
+  * Refined codebase compared to the included copy with H2M
+  * Enable/Disable DVAR `set enableBotScript "1"` (on) or `set enableBotScript "0"` (off)
+    * Place in your server `.cfg`
  
 * More scripts coming soon!
