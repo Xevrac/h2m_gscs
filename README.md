@@ -5,6 +5,7 @@ This is a collection of our GSCs. Some are authored by Xevrac and/or in collabor
 
 # What's in the repo
 
+> Note this is currently broken and will be fixed in v3
 * Nuke to Moab Patch
   * This patch tweaks the game's Nuke to not end_game rather kill all players and resume as normal
  
