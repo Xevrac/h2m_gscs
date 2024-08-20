@@ -12,29 +12,37 @@
 #include maps\mp\gametypes\_hud_util;
 #include maps\mp\gametypes\_gamelogic;
 
-player_spawned()
+init()
 {
-    self endon("disconnect");
-    level endon("game_ended");
-    for(;;){
+    level thread constantMessageLoop();
+}
 
-        if(self.pers["killstreaks"].size == 0) {
-            wait 0.2;
-            continue;
+constantMessageLoop()
+{
+    while(1)
+    {
+        foreach (player in level.players)
+        {
+
+            // Check and replace Chopper Gunner if it exists
+            if (isDefined(player.pers["killstreaks"]) && player.pers["killstreaks"].size > 0)
+            {
+                for (i = 0; i < player.pers["killstreaks"].size; i++)
+                {
+                    if (player.pers["killstreaks"][i].streakName == "chopper_gunner_mp")
+                    {
+                        player.pers["killstreaks"][i].streakName = "ac130_mp";
+                        player iprintlnbold("^7Chopper Gunner has been replaced with AC130 to prevent server crashes.");
+                        player SetActionSlot(4, "");
+                        player giveweapon("ac130_mp");
+                        player givemaxammo("ac130_mp");
+                        player setactionslot(4, "weapon", "ac130_mp");
+                    }
+                }
+            }
         }
 
-    for(i = 0; i < self.pers["killstreaks"].size ;i++){
-        if (self.pers[ "killstreaks" ][i].streakName == "chopper_gunner_mp") {
-            self.pers[ "killstreaks" ][i].streakName  = "ac130_mp";
-            iprintlnbold("^7Chopper Gunner has been replaced to AC130 to prevent server crashes.");
-            self SetActionSlot( 4,"" );
-            self giveweapon( "ac130_mp" );
-            self givemaxammo( "ac130_mp" );
-            self setactionslot( 4, "weapon", "ac130_mp" );
-
-        }
-    }
-
-     wait 0.2;
+        // Wait for a few seconds before checking again
+        wait 1;
     }
 }
