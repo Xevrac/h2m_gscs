@@ -22,11 +22,13 @@ init()
 
     // For use with giveNuke
     // Test thread
+
     // thread onPlayerConnect();
 }
 
 // For use with giveNuke
 // Test function
+
 // onPlayerConnect()
 // {
 //     level endon("game_ended");
@@ -37,8 +39,9 @@ init()
 //     }
 // }
 
-// For use with giveNuke
+// giveNuke onPlayerSpawned
 // Test function
+
 // onPlayerSpawned()
 // {
 //     self endon("disconnect");
@@ -48,7 +51,8 @@ init()
 //     {
 //         self waittill("spawned_player");
         
-//         // Give nuke
+
+
 //         self thread giveNuke();
 //     }
 // }
@@ -160,14 +164,9 @@ customNukeDeath()
         {
             if (isAlive(player))
                 player thread maps\mp\gametypes\_damage::finishPlayerDamageWrapper(level.nukeInfo.player, level.nukeInfo.player, 999999, 0, "MOD_EXPLOSIVE", "nuke_mp", player.origin, player.origin, "none", 0, 0);
-        }
-    }
 
-    foreach (player in level.players)
-    {
-        if (isAlive(player))
-        {
-            player thread customCancelNukeOnDeath(player);
+             wait 5;   
+                player thread customCancelNukeOnDeath(player);
         }
     }
 }
@@ -183,18 +182,21 @@ customCancelNukeOnDeath(player)
     maps\mp\gametypes\_gamelogic::resumeTimer();
     level.timeLimitOverride = false;
 
+    level.nukeDetonated = undefined;
+    level.nukeInfo = undefined;
+    level.nukeIncoming = undefined;
+    player.nuked = undefined;
+
     level.nukeCountdownTimer destroy();
     level.nukeCountdownIcon destroy();
-
-    player.nuked = false;
 
     level notify("nuke_cancelled");
 }
 
-
 // For testing only 
 // Gives player nuke onSpawn
 // Don't use in prod servers or expect chaos!
+
 // giveNuke()
 // {
 //     wait 1;
