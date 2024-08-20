@@ -18,7 +18,40 @@ init()
     replaceFunc(maps\mp\h2_killstreaks\_nuke::cancelNukeOnDeath, ::customCancelNukeOnDeath);
     replaceFunc(maps\mp\h2_killstreaks\_nuke::nukeEffects, ::customNukeEffects);
     replaceFunc(maps\mp\h2_killstreaks\_nuke::doNuke, ::customDoNuke);
+
+
+    // For use with giveNuke
+    // Test thread
+    // thread onPlayerConnect();
 }
+
+// For use with giveNuke
+// Test function
+// onPlayerConnect()
+// {
+//     level endon("game_ended");
+//     for(;;)
+//     {
+//         level waittill("connected", player);
+//         player thread onPlayerSpawned();
+//     }
+// }
+
+// For use with giveNuke
+// Test function
+// onPlayerSpawned()
+// {
+//     self endon("disconnect");
+//     level endon("game_ended");
+
+//     for(;;)
+//     {
+//         self waittill("spawned_player");
+        
+//         // Give nuke
+//         self thread giveNuke();
+//     }
+// }
 
 customDoNuke( allowCancel )
 {
@@ -157,3 +190,14 @@ customCancelNukeOnDeath(player)
 
     level notify("nuke_cancelled");
 }
+
+
+// For testing only 
+// Gives player nuke onSpawn
+// Don't use in prod servers or expect chaos!
+// giveNuke()
+// {
+//     wait 1;
+
+//     self maps\mp\gametypes\_hardpoints::giveHardpoint("nuke_mp", 25);
+// }
