@@ -10,7 +10,7 @@ Steps are super simple so I will keep it high level.
 * Some scripts require a DVAR to enable / disable, use where required.
 
 # What's in the repo
-> Note Nuke to Moab Patch is currently broken and will be fixed in v3
+> Note more work needed to fix timer on DOM. Timer works for FFA. (scores not updated yet)
 * Nuke to Moab Patch
   * This patch tweaks the game's Nuke to not end_game rather kill all players and resume as normal
   * Enable/Disable DVAR `set nukeEndsGame "0"` (off) or `set nukeEndsGame "1"` (on)
@@ -18,6 +18,7 @@ Steps are super simple so I will keep it high level.
 * Multiplayer Bots
   * Refined codebase compared to the included copy with H2M
   * Enable/Disable DVAR `set enableBotScript "1"` (on) or `set enableBotScript "0"` (off)
+  * Set amount of bots on your server `set botQuota "6"` e.g. sets 6 bot quota, i.e. if a player joins, 5 bots will be present + 1 player (6)
     * Place in your server `.cfg`
 
 * g_Entity Patch
