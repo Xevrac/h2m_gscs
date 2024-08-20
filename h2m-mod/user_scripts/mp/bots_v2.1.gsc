@@ -1,6 +1,7 @@
 // Modified by Xevrac
 // Created by Jeffy
 // Better bots script, also adds DVAR for selective enablement on servers from same-host environments
+// v2.1
 
 init()
 {
@@ -9,7 +10,6 @@ init()
 
 handle_bot_count()
 {
-    // DVAR for enabling or disabling the bot script
     if ( !isDefined("enableBotScript") )
     {
         setDvarIfUninitialized("enableBotScript", 1); 
@@ -20,7 +20,12 @@ handle_bot_count()
         return; 
     }
 
-    bot_quota = 4;
+    if ( !isDefined("botQuota") )
+    {
+        setDvarIfUninitialized("botQuota", 18); 
+    }
+
+    bot_quota = getDvarInt("botQuota");
 
     level endon( "game_ended" );
     level waittill( "prematch_over" );
@@ -28,7 +33,7 @@ handle_bot_count()
     for(;;)
     {
         wait 0.5;
-        player_count = level.players.size;
+         player_count = level.players.size;
         if( player_count < bot_quota )
         {
             fill_amount = bot_quota - player_count;
