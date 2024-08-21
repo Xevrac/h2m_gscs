@@ -1,7 +1,7 @@
 // Created by Xevrac
 // Modify NUKE to MOAB style 
 // Use DVAR nukeEndsGame to 0 for no endgame nuke like MW3 MOAB
-// Version 2.1
+// Version 2.1.1
 
 #include scripts\utility;
 #include common_scripts\utility;
@@ -164,8 +164,6 @@ customNukeDeath()
         {
             if (isAlive(player))
                 player thread maps\mp\gametypes\_damage::finishPlayerDamageWrapper(level.nukeInfo.player, level.nukeInfo.player, 999999, 0, "MOD_EXPLOSIVE", "nuke_mp", player.origin, player.origin, "none", 0, 0);
-
-             wait 5;   
                 player thread customCancelNukeOnDeath(player);
         }
     }
