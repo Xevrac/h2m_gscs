@@ -89,19 +89,19 @@ showModernWelcomeMessage()
     subtitleText fadeOverTime(1);
     subtitleText.alpha = 1;
     
-    wait 5;
+    wait 2.5;
     
     // Fade out elements
-    blurOverlay fadeOverTime(1.5);
+    blurOverlay fadeOverTime(0.5);
     blurOverlay.alpha = 0;
-    background fadeOverTime(1);
+    background fadeOverTime(0.25);
     background.alpha = 0;
-    welcomeText fadeOverTime(1);
+    welcomeText fadeOverTime(0.25);
     welcomeText.alpha = 0;
-    subtitleText fadeOverTime(1);
+    subtitleText fadeOverTime(0.25);
     subtitleText.alpha = 0;
     
-    wait 1.5;
+    wait 1;
     
     // Destroy elements
     blurOverlay destroy();
