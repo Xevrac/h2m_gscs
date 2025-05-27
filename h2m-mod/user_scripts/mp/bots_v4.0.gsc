@@ -1,4 +1,5 @@
 /*
+    v4.1 Removes predefined isBot var
     v4.0 Refactor and performance improvements by Horizonz
     v3.1 Modified by Xevrac adding DVAR logic back in from v2.1
     v3.0 Modified by TokyoCowboy using bot spawning from autobots by DoktorSAS
@@ -129,9 +130,4 @@ getNewestBot()
     }
 
     return undefined;
-}
-
-isBot(player)
-{
-    return (player isAI()); // Some engines may still use isTestClient()
 }
